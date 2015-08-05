@@ -35,7 +35,7 @@ describe OmniAuth::Strategies::GoogleOauth2 do
     end
 
     it 'has correct token_url' do
-      expect(subject.client.options[:token_url]).to eq('/o/oauth2/token')
+      expect(subject.client.options[:token_url]).to eq('/oauth2/v3/token')
     end
 
     describe "overrides" do
@@ -424,7 +424,7 @@ describe OmniAuth::Strategies::GoogleOauth2 do
       allow(subject).to receive(:raw_info) { {'picture' => 'https://lh3.googleusercontent.com/url/photo.jpg'} }
       expect(subject.info[:image]).to eq('https://lh3.googleusercontent.com/url/photo.jpg')
     end
-    
+
     it 'should return correct image if google image url has double https' do
       allow(subject).to receive(:raw_info) { {'picture' => 'https:https://lh3.googleusercontent.com/url/photo.jpg'} }
       expect(subject.info[:image]).to eq('https://lh3.googleusercontent.com/url/photo.jpg')

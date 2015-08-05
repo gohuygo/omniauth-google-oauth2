@@ -18,7 +18,7 @@ module OmniAuth
       option :client_options, {
         :site          => 'https://accounts.google.com',
         :authorize_url => '/o/oauth2/auth',
-        :token_url     => '/o/oauth2/token'
+        :token_url     => '/oauth2/v3/token'
       }
 
       def authorize_params
